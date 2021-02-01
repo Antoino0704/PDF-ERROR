@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.filedialog
 import tkinter.messagebox
 from PIL import Image, ImageTk
+import os
 
 class Danger:
     def __init__(self, win):
@@ -31,7 +32,8 @@ class Danger:
         #apri il file
     def Apri(self):
         self.fo = tkinter.filedialog.askopenfilename(defaultextension='.pdf', filetypes=[('File PDF', '*.pdf')])
-        self.stato.set('File aperto')
+        if (os.path.exists(self.fo) == True):
+            self.stato.set('File aperto')
         
     #Danneggia file
     def Danneggia(self):
@@ -42,7 +44,7 @@ class Danger:
 
     #information for program
     def Information(self):
-        tkinter.messagebox.showinfo('Info PDF ERROR', 'version: 1.0.2\nAuthor: Antonino Buscarino')
+        tkinter.messagebox.showinfo('Info PDF ERROR', 'version: 1.0.3\nAuthor: Antonino Buscarino')
 
 
 #parte principale
