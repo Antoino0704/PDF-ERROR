@@ -37,14 +37,15 @@ class Danger:
         
     #Danneggia file
     def Danneggia(self):
-        fi = tkinter.filedialog.asksaveasfilename(defaultextension='.pdf', filetypes=[('File PDF', '*.pdf')])
-        fp = open(fi, 'w')
-        fp.close()
-        self.stato.set('File Danneggiato con successo')
+        if (os.path.exists(self.fo) == True):
+            fi = tkinter.filedialog.asksaveasfilename(defaultextension='.pdf', filetypes=[('File PDF', '*.pdf')])
+            fp = open(fi, 'w')
+            fp.close()
+            self.stato.set('File Danneggiato con successo')
 
     #information for program
     def Information(self):
-        tkinter.messagebox.showinfo('Info PDF ERROR', 'version: 1.0.3\nAuthor: Antonino Buscarino')
+        tkinter.messagebox.showinfo('Info PDF ERROR', 'version: 1.1.4\nAuthor: Antonino Buscarino')
 
 
 #parte principale
